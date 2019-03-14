@@ -28,7 +28,7 @@ class App extends Component {
         <Text style={styles.welcome}>Welcome to Ledr!</Text>
         <Text style={styles.instructions}>Click the button below to see company revenues.</Text>
         <Button title="Load Companies" onPress={() => this.props.navigation.navigate("master")} />
-        <LineChart style={{ flex: 1 }} data={{ dataSets: [{ label: "demo", values: [{ y: 1 }, { y: 2 }, { y: 1 }] }] }} />
+        <LineChart style={{ flex: 1 }} data={{ dataSets: [{ label: "demo", values: [{ y: 10 }, { y: 20 }, { y: 10 }] }] }} />
       </View>
     );
   }

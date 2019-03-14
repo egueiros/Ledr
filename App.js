@@ -8,42 +8,42 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import CompaniesScreen from './screens/CompaniesScreen';
+import CompanyScreen from './screens/CompanyScreen';
+import styles from './themes/CompanyStyle' 
 
 
-export default class App extends Component {
+//  I'm just using app as a component, exporting AppContainer below for simplicity's sake. 
+class App extends Component {
+
+  static navigationOptions = {
+    title: "Home"
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Ledr!</Text>
         <Text style={styles.instructions}>Click the button below to see company revenues.</Text>
-        <Button title="Load Companies"  />
+        <Button title="Load Companies" onPress={() => this.props.navigation.navigate("master")} />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+
+
+// Navigation stack definition. Why so complicated?!
+const AppNavigator = createStackNavigator({
+  home: App,
+  master: CompaniesScreen,
+  detail: CompanyScreen,
+}, {
+    initialRouteName: 'home'
+  }
+);
+
+
+export default createAppContainer(AppNavigator);

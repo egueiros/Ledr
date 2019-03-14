@@ -7,7 +7,7 @@ export default class CompanyScreen extends Component {
     constructor(props) {
         super(props)
 
-        const company = props.navigation.getParam('companyName', NaN)
+        const company = props.navigation.getParam('info', NaN)
 
         this.state = {
             company: company
@@ -15,17 +15,20 @@ export default class CompanyScreen extends Component {
     }
 
     static navigationOptions = ({ navigation }) => {
-        const info = navigation.getParam('companyName', NaN)
+        const info = navigation.getParam('info', NaN)
         return {
-            title: info
+            title: info.name
         };
     };
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>{this.state.company}</Text>
-                <Text style={styles.instructions}>Below is some info</Text>
+                <Text style={styles.welcome}>{this.state.company.name}</Text>
+                <Text style={styles.instructions}>{this.state.company.name}</Text>
+                <Text style={styles.instructions}>{this.state.company.location.address}</Text>
+                <Text style={styles.instructions}>{this.state.company.location.city}</Text>
+                <Text style={styles.instructions}>{this.state.company.location.country}</Text>
                 <Button title="Go Back" onPress={() => this.props.navigation.goBack()} />
             </View>
         )

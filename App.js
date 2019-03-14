@@ -7,12 +7,13 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import {AppRegistry, Platform, StyleSheet, Text, View, Button, processColor} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import CompaniesScreen from './screens/CompaniesScreen';
 import CompanyScreen from './screens/CompanyScreen';
-import styles from './themes/CompanyStyle' 
-
+import styles from './themes/CompanyStyle'; 
+import { LineChart } from 'react-native-charts-wrapper'
+;
 
 //  I'm just using app as a component, exporting AppContainer below for simplicity's sake. 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
         <Text style={styles.welcome}>Welcome to Ledr!</Text>
         <Text style={styles.instructions}>Click the button below to see company revenues.</Text>
         <Button title="Load Companies" onPress={() => this.props.navigation.navigate("master")} />
+        <LineChart style={{ flex: 1 }} data={{ dataSets: [{ label: "demo", values: [{ y: 1 }, { y: 2 }, { y: 1 }] }] }} />
       </View>
     );
   }

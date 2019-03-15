@@ -11,15 +11,22 @@ import {AppRegistry, Platform, StyleSheet, Text, View, Button, processColor} fro
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import CompaniesScreen from './screens/CompaniesScreen';
 import CompanyScreen from './screens/CompanyScreen';
+import BarChartScreen from './screens/BarChartScreen';
 import styles from './themes/CompanyStyle'; 
-import { LineChart } from 'react-native-charts-wrapper'
+import { Colors } from './themes';
 ;
 
 //  I'm just using app as a component, exporting AppContainer below for simplicity's sake. 
 class App extends Component {
 
   static navigationOptions = {
-    title: "Home"
+    title: "Home",
+    headerTintColor: '#ffffff',
+    headerStyle: {
+            backgroundColor: Colors.background,
+            borderBottomColor: 'black',
+            borderBottomWidth: 0,
+        },
   }
 
   render() {
@@ -28,7 +35,6 @@ class App extends Component {
         <Text style={styles.welcome}>Welcome to Ledr!</Text>
         <Text style={styles.instructions}>Click the button below to see company revenues.</Text>
         <Button title="Load Companies" onPress={() => this.props.navigation.navigate("master")} />
-        <LineChart style={{ flex: 1 }} data={{ dataSets: [{ label: "demo", values: [{ y: 10 }, { y: 20 }, { y: 10 }] }] }} />
       </View>
     );
   }
@@ -42,6 +48,7 @@ const AppNavigator = createStackNavigator({
   home: App,
   master: CompaniesScreen,
   detail: CompanyScreen,
+  barChart: BarChartScreen
 }, {
     initialRouteName: 'home'
   }

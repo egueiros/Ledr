@@ -7,16 +7,17 @@ export default StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: Colors.background,
     },
     welcome: {
-        fontSize: 20,
+        fontSize: 40,
         textAlign: 'center',
         margin: 10,
+        color: Colors.charcoal,
     },
     instructions: {
         textAlign: 'center',
-        color: '#333333',
+        color: Colors.frost,
         marginBottom: 5,
     },
     row: {
@@ -51,5 +52,15 @@ export default StyleSheet.create({
         justifyContent: 'space-around',
         flexDirection: 'row',
         flexWrap: 'wrap'
+    }, 
+    chart: {
+        flex: 1
+    }, 
+    companyInfo: {
+        height: 120,
+        backgroundColor: Colors.background,
+        alignItems: 'flex-start',
+        padding: 20,
     }
+
 });

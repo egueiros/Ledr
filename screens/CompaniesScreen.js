@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import {Text, View, Button, ListView, TouchableOpacity } from 'react-native';
 import styles from '../themes/CompanyStyle' 
+import { Colors } from '../themes';
 
 export default class CompaniesScreen extends Component {
 
     static navigationOptions = {
-        title: "Companies"
+        title: "Companies",
+        headerTintColor: '#ffffff',
+        headerStyle: {
+            backgroundColor: Colors.background,
+            borderBottomColor: 'black',
+            borderBottomWidth: 0,
+        },
     };
 
     constructor(props) {
@@ -32,7 +39,7 @@ export default class CompaniesScreen extends Component {
 
     renderRow(rowData){
         return(
-            <TouchableOpacity style={styles.row} onPress={() => this.props.navigation.navigate('detail', {
+            <TouchableOpacity style={styles.row} onPress={() => this.props.navigation.navigate('barChart', {
                 info: rowData,
             })}>
                 <Text style={styles.boldLabel}>{rowData.name}</Text>

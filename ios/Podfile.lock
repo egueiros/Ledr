@@ -1,5 +1,8 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
   - DoubleConversion (1.1.6)
   - Folly (2018.10.22.00):
     - boost-for-react-native
@@ -61,8 +64,13 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - RNCharts (0.5.1):
+    - Charts (= 3.2.2)
+    - React
+    - SwiftyJSON
   - RNGestureHandler (1.1.0):
     - React
+  - SwiftyJSON (4.2.0)
   - yoga (0.59.1.React)
 
 DEPENDENCIES:
@@ -82,12 +90,15 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native/`)
   - React/RCTVibration (from `../node_modules/react-native/`)
   - React/RCTWebSocket (from `../node_modules/react-native/`)
+  - RNCharts (from `../node_modules/react-native-charts-wrapper`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
+    - Charts
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -98,6 +109,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native/"
+  RNCharts:
+    :path: "../node_modules/react-native-charts-wrapper"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   yoga:
@@ -105,13 +118,16 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   React: 34a405ead72252839fdc4afc1f972a7ed984af84
+  RNCharts: 1d22a617410c8fc9367d2f31ccd7c101f670008e
   RNGestureHandler: b65d391f4f570178d657b99a16ec99d09b8656b0
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   yoga: 8fb47f180b19b0dadb285a09e4c74c8a41721d3a
 
-PODFILE CHECKSUM: 50389f3a4952c969dada95a7e3cd5497cbc90cd8
+PODFILE CHECKSUM: 9f8fd49e44068caa587f2f92b6a878cf53e2f126
 
 COCOAPODS: 1.6.1

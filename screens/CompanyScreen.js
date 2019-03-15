@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    processColor
-} from 'react-native';
-// import styles from '../themes/CompanyStyle';
+import { Platform, StyleSheet, Text, View, Button, processColor } from 'react-native';
+import styles from '../themes/CompanyStyle';
 import { LineChart } from 'react-native-charts-wrapper';
 
- class CompanyScreen extends Component {
+export default class CompanyScreen extends Component {
 
     constructor(props) {
         super(props)
 
-        // const company = props.navigation.getParam('info', NaN)
+        const company = props.navigation.getParam('info', NaN)
 
         this.state = {
-            // company: company,
+            company: company,
             legend: {
                 enabled: false,
                 textSize: 14,
@@ -54,54 +48,23 @@ import { LineChart } from 'react-native-charts-wrapper';
         }
     }
 
-    // static navigationOptions = ({ navigation }) => {
-    //     const info = navigation.getParam('info', NaN)
-    //     return {
-    //         title: info.name
-    //     };
-    // };
+    static navigationOptions = ({ navigation }) => {
+        const info = navigation.getParam('info', NaN)
+        return {
+            title: info.name
+        };
+    };
 
     render() {
         return (
-
-            <View style={{ flex: 1 }}>
-
-                <View style={{ height: 80 }}>
-                    <Text> selected entry</Text>
-                    <Text> {this.state.selectedEntry}</Text>
-                </View>
-
-
-                <View style={styles.container}>
-                    <LineChart
-                        style={styles.chart}
-                        data={this.state.data}
-                        xAxis={this.state.xAxis}
-                        animation={{ durationX: 2000 }}
-                        legend={this.state.legend}
-                        gridBackgroundColor={processColor('#ffffff')}
-                        visibleRange={{ x: { min: 5, max: 5 } }}
-                        drawBarShadow={false}
-                        drawValueAboveBar={true}
-                        drawHighlightArrow={true}
-                        highlights={this.state.highlights}
-                        onChange={(event) => console.log(event.nativeEvent)}
-                    />
-                </View>
+            <View style={styles.container}>
+                <Text style={styles.welcome}>{this.state.company.name}</Text>
+                <Text style={styles.instructions}>{this.state.company.name}</Text>
+                <Text style={styles.instructions}>{this.state.company.location.address}</Text>
+                <Text style={styles.instructions}>{this.state.company.location.city}</Text>
+                <Text style={styles.instructions}>{this.state.company.location.country}</Text>
+                <Button title="Go Back" onPress={() => this.props.navigation.goBack()} />
             </View>
-        
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF'
-    },
-    chart: {
-        flex: 1
-    }
-});
-
-export default CompanyScreen;

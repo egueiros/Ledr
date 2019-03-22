@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, processColor } from 'react-native';
-import styles from '../themes/CompanyStyle';
-import { LineChart } from 'react-native-charts-wrapper';
+import React, { Component } from 'react'
+import { Platform, StyleSheet, Text, View, Button, processColor } from 'react-native'
+import styles from '../themes/CompanyStyle'
+import { LineChart } from 'react-native-charts-wrapper'
 
 export default class CompanyScreen extends Component {
 

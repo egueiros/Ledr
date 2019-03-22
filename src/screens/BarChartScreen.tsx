@@ -5,16 +5,16 @@ import {
     Text,
     View,
     processColor, Button
-} from 'react-native';
+} from 'react-native'
 import styles from '../themes/CompanyStyle';
 import { LineChart } from 'react-native-charts-wrapper';
 import { Colors } from '../themes';
+import { NavigationScreenProps } from 'react-navigation';
 
 class BarChartScreen extends React.Component {
 
-    static navigationOptions = ({ navigation }) => {
+    static navigationOptions = ({ navigation }: NavigationScreenProps) => {
         return {
-        
             headerTintColor: '#ffffff',
             headerStyle: {
                 backgroundColor: Colors.background,
